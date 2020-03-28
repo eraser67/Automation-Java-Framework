@@ -29,7 +29,7 @@ public class Helper {
 		return screenshotPath;
 	}
 	
-	
+
  public static String GetCurrentDateTime() {
 	 
 	 DateFormat Customformat = new SimpleDateFormat("MM_dd_yy_HH_mm_ss");

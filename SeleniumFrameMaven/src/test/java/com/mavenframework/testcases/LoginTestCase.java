@@ -25,17 +25,18 @@ public class LoginTestCase extends BaseClass{
 		
 		System.out.println(driver.getTitle());
 
-		LoginPage login = PageFactory.initElements(driver, LoginPage.class);
+		LoginPage login = PageFactory.initElements(BaseClass.driver, LoginPage.class);
 
 		logger.info("Starting Application");
 		
 		login.LoginToCogmentoCRM(excel.GetStringData(0, 0,0), excel.GetStringData(0, 0, 1));
 		
+	
 		logger.pass("Login Successfully");
 	}
 	
-	
-	@Test(priority = 2)
+
+//	@Test(priority = 2)
 	public void LoginSampleFailed() {
 		
 		

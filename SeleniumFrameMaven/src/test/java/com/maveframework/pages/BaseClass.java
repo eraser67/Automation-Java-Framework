@@ -26,7 +26,7 @@ import com.mavenframework.utility.Helper;
 
 public class BaseClass {
 
-	public WebDriver driver;
+	public static WebDriver driver;
 
 	public ExcelDataProvider excel;
 
@@ -37,7 +37,6 @@ public class BaseClass {
 
 	@BeforeSuite
 	public void SetUpSuite() {
-
 		Reporter.log("Setting up Extent Report", true);
 
 		excel = new ExcelDataProvider();
@@ -48,7 +47,7 @@ public class BaseClass {
 		report = new ExtentReports();
 		report.attachReporter(extent);
 	}
-
+ 
 	@BeforeClass
 	public void Setup() {
 		Reporter.log("Browser Application is starting", true);

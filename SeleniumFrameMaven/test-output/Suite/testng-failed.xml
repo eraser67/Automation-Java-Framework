@@ -6,7 +6,7 @@
       <class name="com.mavenframework.testcases.LoginTestCase">
         <methods>
           <include name="Setup"/>
-          <include name="LoginSampleFailed"/>
+          <include name="Login"/>
           <include name="SetUpSuite"/>
           <include name="TearDownMethod"/>
           <include name="TearDown"/>

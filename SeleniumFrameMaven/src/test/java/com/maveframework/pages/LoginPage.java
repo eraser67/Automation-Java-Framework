@@ -5,35 +5,43 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
-public class LoginPage {
+import com.mavenframework.extensions.DriverExtension;
+
+public class LoginPage extends DriverExtension {
 
 	WebDriver driver;
 
 	public LoginPage(WebDriver driverLogin)
 	{
-		this.driver = driverLogin;
+		super(driverLogin);
 
 	}
+	
+	
 	
 	@FindBy(css = ".field:nth-child(1) input")  WebElement Email; 
 	@FindBy(css = ".field:nth-child(2) input")  WebElement Password; 
 	@FindBy(css = ".fluid")  WebElement LoginButton; 
+	@FindBy(css = "#ui > div > div.ui.fluid.container > div.ui.fluid.container > div")  WebElement DashBoard; 
+	
 	
 	public void LoginToCogmentoCRM(String email, String password)  {
+		waitForPageLoaded();
 		
+		waitForElement(Email);
+		HighLightElement(Email,1);
+		HighLightElement(Password,1);
+		HighLightElement(LoginButton,1);
 		Email.sendKeys(email);
 		Password.sendKeys(password);
 		LoginButton.click();
-		
-		
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	
+		waitForElement(DashBoard);
+		HighLightElement(DashBoard, 1);
+		Assert.assertTrue(isElementExist(DashBoard), "");
+		//Assert.assertTrue(CheckElementIfPresent(DashBoard));
+			
 	}
 
 }
